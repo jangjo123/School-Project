@@ -1,0 +1,149 @@
+﻿@page "/school"
+@using School_Project.Data.Models
+@using School_Project.Data.Services
+
+@inject SchoolService SchoolService
+
+<h3>School</h3>
+
+<nav class="navbar">
+    <div class="navbar_left">
+
+    </div>
+
+    <div class="navbar_logo">
+        <a href="#">로고</a>
+    </div>
+
+    <div class="navbar_right">
+        <button class="login">로그인</button>
+        <button class="SigUp">회원가입</button>
+    </div>
+    <a href="#" class="navbar_toogleBtn">
+        <i class="fa fa-solid fa-bars"></i>
+    </a>
+</nav>
+
+<section class="contents">
+    <div class="contents_text">
+        <p>자신의 창의력을 이용하여 작품을 만드세요</p>
+        <p>인공지능을 활용한 자신만의 이미지 아트</p>
+    </div>
+
+    <div class="contents_input">
+        <input type="text" placeholder="제작할 이미지 텍스트 입력">
+        <button class="btn btn-primary" @onclick="AddResult"> 
+            입력
+        </button>
+    </div>
+
+    <div class="contents_upload">
+        <p>또는</p>
+        <button>이미지 업로드</button>
+    </div>
+</section>
+
+<section class="test_img">
+    <div class="test_img_full">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</section>
+
+@if (_showPopup)
+            {
+                <div class="modal" style="display:block" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Add/Update Result</h3>
+                                <button type="button" class="close" @onclick="ClosePopup">
+                                    <span area-hidden="true">X</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="UserName">UserName</label>
+                                <input class="form-control" type="text" placeholder="UserName" @bind-value="_result.UserName" />
+                                <label for="UserName">Prompt</label>
+                                <input class="form-control" type="text" placeholder="Prompt" @bind-value="_result.prompt" />
+                                <button class="btn btn-primary" @onclick="SaveResult">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+@if (_results == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>UserName</th>
+                <th>Prompt</th>
+                <th>Date</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in _results)
+            {
+                <tr>
+                    <td>@result.UserName</td>
+                    <td>@result.prompt</td>
+                    <td>@result.Date.ToString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    List<Result> _results;
+
+    bool _showPopup;
+    Result _result;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _results = await SchoolService.GetResultsAsync();
+    }
+
+    void AddResult()
+    {
+        _showPopup = true;
+        _result = new Result() { Id = 0 };
+    }
+
+    void ClosePopup()
+    {
+        _showPopup = false;
+    }
+
+    async Task SaveResult()
+    {
+        if (_result.Id == 0)
+        {
+            _result.Date = DateTime.Now;
+            var result = SchoolService.AddResult(_result);
+        }
+        else
+        {
+            //TODO
+        }
+
+        _results = await SchoolService.GetResultsAsync();
+    }
+}
