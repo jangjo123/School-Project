@@ -6,6 +6,247 @@
 
 <h3>School</h3>
 
+<style>
+     *{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+    body{ height: 100%; }
+
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1280px;
+        height: 86px;
+        margin: 0 auto;
+    }
+    .navbar_logo{
+        width: 200px;
+        height: 50px;
+        background-color: white;
+        border: 1px solid black;
+    }
+    .navbar_logo a{
+        line-height: 35px;
+        width: 100%;
+    }
+
+    .navbar_left{
+        width: 183px;
+    }
+
+    .navbar_right button{
+        margin-left: 8px;
+        font-weight: bold;
+        padding: 0px 16px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        line-height: 86px;
+    }
+    .navbar_toogleBtn{
+        position: absolute;
+        right: 32px;
+        font-size: 24px;
+        color: black;
+        display: none;
+        cursor: pointer;
+        line-height: 86px;
+    }
+
+    media screen and (max-width : 768px){
+        .navbar{
+            flex-direction: column;
+        }
+        .navbar_right{
+            justify-content: center;
+            display: none;
+        }
+        .navbar_toogleBtn{
+            display: block;
+        }
+        .navbar_right.active{
+            display: flex;
+            background-color: #008bf6;
+            width: 500px;
+            height: 30px;
+        }
+        .navbar_right button{
+            line-height: 30px;
+        }
+    }
+
+    .contents{
+        width: 1280px;
+        height: 403px;
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+
+    .contents_text{
+        font-size: 23px;
+        text-align: center;
+        padding-bottom: 40px;
+        width: 100%;
+        height: 134px;
+    }
+    .contents_text p{
+        padding: 10px 0;
+    }
+    .contents_text p:nth-child(1){
+        font-weight: bold;
+    }
+    .contents_text p:nth-child(2){
+        font-size: 17px;
+    }
+
+    .contents_input{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 56px;
+    }
+
+    .contents_input input{
+        padding: 12px 118px 14px 26px;
+        background-color: #e8e8e8;
+        margin: 0;
+        border: 1px solid #e8e9ea;
+        width: 650px;
+        height: 56px;
+        border-radius: 28px;
+    }
+
+    .contents_input button{
+        position: absolute;
+        width: 80px;
+        height: 44px;
+        top: 6px;
+        bottom: 0;
+        right: 321px;
+        border-radius: 22px;
+        border: 0;
+        background-color: #008bf6;
+        color: white;
+        cursor: pointer;
+    }
+    .contents_input p{
+        display: inline-block;
+    }
+
+    .contents_upload{
+        width: 100%;
+        height: 155px;
+    }
+    .contents_upload p{
+        text-align: center;
+        padding: 14px 0;
+    }
+    .contents_upload button{
+        font-size: 18px;
+        font-weight: bold;
+        padding: 14px 0;
+        border: 2px solid transparent;
+        border-radius: 28px;
+        text-align: center;
+        cursor: pointer;
+        background-color: transparent;
+        color: #008bf6;
+        border-color: #008bf6;
+        width: 376px;
+        height: 56px;
+        margin: auto;
+        display: block;
+    }
+
+    .test_img{
+        width: 1280px;
+        height: 340px;
+        margin: 0 auto;
+    }
+    .test_img_full{
+        width: 100%;
+        height: 100%;
+    }
+    .test_img_full ul{
+        width: 100%;
+        height: 100%;
+    }
+    .test_img_full ul li{
+        width: 201px;
+        height: 170px;
+        border: 1px solid #008bf6;
+        float: left;
+        margin: 35px 6px;
+    }
+
+
+    media screen and (max-width : 1024px){
+        .test_img_full ul li{
+            margin: 27px 67px;
+        }
+    }
+
+    media screen and (max-width : 1021px){
+        .test_img_full ul li{
+            margin: 27px 51px;
+        }
+    }
+
+    media screen and (max-width : 769px){
+        .test_img_full ul li{
+            margin: 12px 27px;
+        }
+    }
+
+    media screen and (max-width : 526px){
+        .test_img_full ul li{
+            margin: 12px 26px;
+        }
+    }
+
+    media screen and (max-width : 425px){
+        .test_img_full ul li{
+            width: 181px;
+            height: 163px;
+            margin: 14px 15px;
+        }
+    }
+
+    media screen and (max-width : 375px){
+        .test_img_full ul li{
+            width: 181px;
+            height: 163px;
+            margin: 23px 3px;
+        }
+    }
+
+
+
+    media screen and (max-width : 1280px){
+        .navbar{
+            width: 100%;
+        }
+        .contents{
+            width: 100%;
+        }
+        .contents_input button{
+            position: relative;
+            right: 87px;
+        }
+        .test_img{
+            width: 100%;
+        }
+    }
+
+</style>
+
 <nav class="navbar">
     <div class="navbar_left">
 
