@@ -335,16 +335,24 @@ else
                 <th>Prompt</th>
                 <th>Date</th>
                 <th>Summary</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var result in _results)
             {
-                <tr>
-                    <td>@result.UserName</td>
-                    <td>@result.prompt</td>
-                    <td>@result.Date.ToString()</td>
-                </tr>
+            <tr>
+                <td>@result.UserName</td>
+                <td>@result.prompt</td>
+                <td>@result.Date.ToString()</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="() => UpdateResult(result)">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-primary" @onclick="() => DeleteResult(result)">Delete</button>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
@@ -373,6 +381,18 @@ else
         _showPopup = false;
     }
 
+    void UpdateResult(Result result)
+    {
+        _showPopup = true;
+        _result = result;
+    }
+
+    async Task DeleteResult(Result result)
+    {
+        var Result = SchoolService.DeleteResult(result);
+        _results = await SchoolService.GetResultsAsync();
+    }
+
     async Task SaveResult()
     {
         if (_result.Id == 0)
@@ -382,9 +402,10 @@ else
         }
         else
         {
-            //TODO
+            var result = SchoolService.UpdateResult(_result);
         }
 
+        _showPopup = false;
         _results = await SchoolService.GetResultsAsync();
     }
 }

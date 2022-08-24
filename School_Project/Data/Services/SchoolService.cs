@@ -37,7 +37,35 @@ namespace School_Project.Data.Services
         }
 
         // Update
+        public Task<bool> UpdateResult(Result result)
+        {
+            var findResult = _context.Result
+                .Where(x => x.Id == result.Id)
+                .FirstOrDefault();
 
+            if (findResult == null)
+                return Task.FromResult(false);
+
+            findResult.UserName = result.UserName;
+            findResult.prompt = result.prompt;
+            _context.SaveChanges();
+
+            return Task.FromResult(true);
+        }
         // Delect
+        public Task<bool> DeleteResult(Result result)
+        {
+            var findResult = _context.Result
+                .Where(x => x.Id == result.Id)
+                .FirstOrDefault();
+
+            if (findResult == null)
+                return Task.FromResult(false);
+
+            _context.Result.Remove(result);
+            _context.SaveChanges();
+
+            return Task.FromResult(true);
+        }
     }
 }

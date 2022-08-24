@@ -6,15 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\css\**" />
+    <Content Remove="Pages\css\**" />
+    <EmbeddedResource Remove="Pages\css\**" />
+    <None Remove="Pages\css\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.22" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.22" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\css\" />
   </ItemGroup>
 
 </Project>
