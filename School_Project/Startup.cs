@@ -41,7 +41,10 @@ namespace School_Project
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 
-            services.AddScoped<SchoolService>();
+            services.AddHttpClient<SchoolService>(c =>
+            {
+                c.BaseAddress = new Uri("https://localhost:44367");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

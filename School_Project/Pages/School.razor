@@ -1,5 +1,5 @@
 ﻿@page "/school"
-@using School_Project.Data.Models
+@using SharedData.Models
 @using School_Project.Data.Services
 
 @inject SchoolService SchoolService
@@ -398,11 +398,11 @@ else
         if (_result.Id == 0)
         {
             _result.Date = DateTime.Now;
-            var result = SchoolService.AddResult(_result);
+            var result = await SchoolService.AddResult(_result);
         }
         else
         {
-            var result = SchoolService.UpdateResult(_result);
+            var result = await SchoolService.UpdateResult(_result);
         }
 
         _showPopup = false;
