@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    height: 60px;
+    background-color: #252b30;
+    display: flex;
+    justify-content: space-between;
+}
+.menu li{
+    float: left;
+    margin-right: 40px;
+    padding: 15px 0px;
+}
+.menu li a{
+    color: #d6cece;
+    font-size: 15px;
+}
+.Create_img{
+    width: 100%;
+    height: 800px;
+    background-image: url("../images/그룹 1.png");
+    background-repeat: no-repeat;
+}
+.Create_box{
+    width: 100%;
+    padding-top: 63px;
+}
+.main_text p{
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+.main_text p:nth-child(1){
+    font-size: 60px;
+    font-weight: bold;
+}
+.main_text p:nth-child(2){
+    font-size: 21px;
+}
+.text_prompt{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.text_prompt textarea{
+    width: 400px;
+    height: 41px;
+    resize: none;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+.Set_box{
+    width: 100%;
+    height: 105px;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+.style_box, .D_set_box{
+    width: 195px;
+    height: 85px;
+    float: left;
+}
+.style_box{
+   position: relative;
+   margin-right: 5px;
+}
+.style_box p{
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+}
+.style_box img{
+    width: 100%;
+    height: 100%;
+}
+.D_set_box{
+    position: relative;
+    margin-left: 5px;
+}
+.D_set_box p{
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+}
+.D_set_box img{
+    width: 100%;
+    height: 100%;
+}
+.style_box, .D_set_box p{
+    color: white;
+}
+.CreateBtn{
+    width: 400px;
+    height: 42px;
+    background-color: #157cf8;
+    color: white;
+    border: none;
+    display: block;
+    margin: auto;
+    font-size: 15px;
+}
+
+@media screen and (max-width : 428px){
+    .main_text p:nth-child(1){
+        font-size: 13vw;
+    }
+    .main_text p:nth-child(2){
+        font-size: 4vw;
+    }
+    .text_prompt textarea{
+        width: 90vw;
+    }
+    .style_box{
+        width: 48vw;
+        height: 10vh;
+    }
+    .style_box p{
+        font-size: 4vw;
+    }
+    .D_set_box{
+        width: 48vw;
+        height: 10vh;
+    }
+    .D_set_box p{
+        font-size: 4vw;
+    }
+
+    .CreateBtn{
+        width: 100vw;
+        height: 35px;
+    }
+}
