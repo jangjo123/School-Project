@@ -1,0 +1,13 @@
+1. docker to window를 깐다.
+
+2. 명령어 입력: docker build .
+
+3. docker run -it [이미지ID]   (build가 성공하면 이미지 ID가 나옴)
+
+4. python이 실행되면 import django print(django.get_version())을 입력해서 되는지 확인한다. Ctrl + D 로 나간다. 
+
+5. 명령어 입력: docker-compose run web django-admin startproject school_project . 
+
+6. 명령어 입력: docker-compose up
+
+7. http://localhost:8000에 들어가서 되는지 확인
