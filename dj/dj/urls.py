@@ -20,5 +20,6 @@ import aiapp.views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('your_image/', aiapp.views.your_image),
     path("", aiapp.views.index, name="index"),
 ]

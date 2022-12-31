@@ -30,7 +30,11 @@
                 <p>당신만의 이미지를 제작하세요</p>
             </div>
             <div class="text_prompt">
-                <textarea name="" id="" placeholder="prompt를 입력하세요."></textarea>
+                <form action="/" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Submit">
+                </form>
             </div>
             <div class="Set_box">
                 <div class="style_box">
@@ -87,7 +91,7 @@
         
                 <button class="set_btn" onClick="location.href='index.html'">설정완료</button>
             </div>
-            <button class="CreateBtn">생성하기</button>
+            <!-- <button class="CreateBtn">생성하기</button> -->
         </div>
     </section>
 </body>
